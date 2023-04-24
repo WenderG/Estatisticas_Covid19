@@ -29,7 +29,10 @@
     "sass": "^1.52.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.17.12",
     "babel-jest": "^28.1.1",
     "babel-preset-gatsby": "^2.16.0",
