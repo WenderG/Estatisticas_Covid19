@@ -27,57 +27,6 @@ const IndexPage = () => {
 
   const hasCountries = Array.isArray( countries ) && countries.length > 0;
 
-  const dashboardStats = [
-    {
-      primary: {
-        label: 'Total Cases',
-        value: stats ? commafy( stats?.cases ) : '-',
-      },
-      secondary: {
-        label: 'Per 1 Million',
-        value: stats ? commafy( stats?.casesPerOneMillion ) : '-',
-      },
-    },
-    {
-      primary: {
-        label: 'Total Deaths',
-        value: stats ? commafy( stats?.deaths ) : '-',
-      },
-      secondary: {
-        label: 'Per 1 Million',
-        value: stats ? commafy( stats?.deathsPerOneMillion ) : '-',
-      },
-    },
-    {
-      primary: {
-        label: 'Total Tests',
-        value: stats ? commafy( stats?.tests ) : '-',
-      },
-      secondary: {
-        label: 'Per 1 Million',
-        value: stats ? commafy( stats?.testsPerOneMillion ) : '-',
-      },
-    },
-    {
-      primary: {
-        label: 'Active Cases',
-        value: stats ? commafy( stats?.active ) : '-',
-      },
-    },
-    {
-      primary: {
-        label: 'Critical Cases',
-        value: stats ? commafy( stats?.critical ) : '-',
-      },
-    },
-    {
-      primary: {
-        label: 'Recovered Cases',
-        value: stats ? commafy( stats?.recovered ) : '-',
-      },
-    },
-  ];
-
   async function mapEffect({ leafletElement: map } = {}) {
     if ( !hasCountries || !map ) return;
 
@@ -103,6 +52,57 @@ const IndexPage = () => {
         };
       }),
     };
+
+    const dashboardStats = [
+      {
+        primary: {
+          label: 'Total Cases',
+          value: stats ? commafy( stats?.cases ) : '-',
+        },
+        secondary: {
+          label: 'Per 1 Million',
+          value: stats ? commafy( stats?.casesPerOneMillion ) : '-',
+        },
+      },
+      {
+        primary: {
+          label: 'Total Deaths',
+          value: stats ? commafy( stats?.deaths ) : '-',
+        },
+        secondary: {
+          label: 'Per 1 Million',
+          value: stats ? commafy( stats?.deathsPerOneMillion ) : '-',
+        },
+      },
+      {
+        primary: {
+          label: 'Total Tests',
+          value: stats ? commafy( stats?.tests ) : '-',
+        },
+        secondary: {
+          label: 'Per 1 Million',
+          value: stats ? commafy( stats?.testsPerOneMillion ) : '-',
+        },
+      },
+      {
+        primary: {
+          label: 'Active Cases',
+          value: stats ? commafy( stats?.active ) : '-',
+        },
+      },
+      {
+        primary: {
+          label: 'Critical Cases',
+          value: stats ? commafy( stats?.critical ) : '-',
+        },
+      },
+      {
+        primary: {
+          label: 'Recovered Cases',
+          value: stats ? commafy( stats?.recovered ) : '-',
+        },
+      },
+    ];
 
     const geoJsonLayers = new L.GeoJSON( geoJson, {
       pointToLayer: ( feature = {}, latlng ) => {
